@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulação de Rollback de Transação</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: auto; }
+        h1 { color: #0056b3; }
+        .status { padding: 10px; border-radius: 5px; margin-bottom: 20px; font-weight: bold; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .failure { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        button { padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulação de Rollback de Transação em Spring Boot</h1>
+        <hr>
+
+        <h2>Status da Simulação</h2>
+        <div th:class="${logMessage.contains('ROLLBACK')} ? 'status failure' : 'status success'" 
+             th:text="${logMessage}">
+             Mensagem de log inicial...
+        </div>
+
+        <form th:action="@{/simular-rollback}" method="post">
+            <button type="submit">Executar Transação e Forçar Rollback</button>
+        </form>
+
+        <hr>
+
+        <h2>Estado Atual do Banco de Dados (Tabela 'Product')</h2>
+        <p>Total de Registros: <span th:text="${count}">0</span></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Estoque</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}">1</td>
+                    <td th:text="${product.name}">Item de Teste</td>
+                    <td th:text="${product.stock}">10</td>
+                </tr>
+                <tr th:if="${count == 0}">
+                    <td colspan="3">Nenhum registro encontrado.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

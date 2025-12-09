@@ -1,0 +1,92 @@
+2025-12-01 22:47:28.381 [main] INFO  c.t.demo.TransacaoDemoApplication - Starting TransacaoDemoApplication using Java 25.0.1 with PID 23024 (C:\IFPR\WEBIII\demo\target\classes started by guilh in C:\IFPR\WEBIII\demo)
+2025-12-01 22:47:28.383 [main] INFO  c.t.demo.TransacaoDemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-01 22:47:28.881 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-01 22:47:28.930 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 1 JPA repository interface.
+2025-12-01 22:47:29.280 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-01 22:47:29.290 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-01 22:47:29.292 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-01 22:47:29.292 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-01 22:47:29.344 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 918 ms
+2025-12-01 22:47:29.470 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-01 22:47:29.513 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.1.8.Final
+2025-12-01 22:47:29.894 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-01 22:47:29.928 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-01 22:47:30.023 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@48ee3c2d
+2025-12-01 22:47:30.024 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-01 22:47:30.083 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/transacao_demo]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 13.1
+	Default catalog/schema: transacao_demo/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-01 22:47:30.628 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-01 22:47:30.685 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01 22:47:30.761 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-01 22:47:30.895 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01 22:47:30.911 [main] INFO  o.s.b.w.a.WelcomePageHandlerMapping - Adding welcome page template: index
+2025-12-01 22:47:31.109 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-01 22:47:31.126 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-01 22:47:31.132 [main] INFO  c.t.demo.TransacaoDemoApplication - Started TransacaoDemoApplication in 3.148 seconds (process running for 3.479)
+2025-12-01 22:47:44.499 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-01 22:47:44.499 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-01 22:47:44.500 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-12-01 22:47:59.316 [http-nio-8080-exec-4] INFO  c.t.demo.TransactionalService - AUDIT: Transação ID 1764640079316 INICIADA. Método @Transactional ativado.
+2025-12-01 22:47:59.341 [http-nio-8080-exec-4] INFO  c.t.demo.TransactionalService - AUDIT: Inserção do Item A (ID 7) concluída na sessão transacional.
+2025-12-01 22:47:59.344 [http-nio-8080-exec-4] INFO  c.t.demo.TransactionalService - AUDIT: Inserção do Item B (ID 8) concluída na sessão transacional.
+2025-12-01 22:47:59.344 [http-nio-8080-exec-4] ERROR c.t.demo.TransactionalService - AUDIT: Falha de negócio detectada. Lançando RuntimeException para forçar ROLLBACK.
+2025-12-01 23:12:30.069 [http-nio-8080-exec-6] INFO  c.t.demo.TransactionalService - AUDIT: Transação ID 1764641550069 INICIADA. Método @Transactional ativado.
+2025-12-01 23:12:30.072 [http-nio-8080-exec-6] INFO  c.t.demo.TransactionalService - AUDIT: Inserção do Item A (ID 9) concluída na sessão transacional.
+2025-12-01 23:12:30.074 [http-nio-8080-exec-6] INFO  c.t.demo.TransactionalService - AUDIT: Inserção do Item B (ID 10) concluída na sessão transacional.
+2025-12-01 23:12:30.074 [http-nio-8080-exec-6] ERROR c.t.demo.TransactionalService - AUDIT: Falha de negócio detectada. Lançando RuntimeException para forçar ROLLBACK.
+2025-12-01 23:12:53.685 [main] INFO  c.t.demo.TransacaoDemoApplication - Starting TransacaoDemoApplication using Java 25.0.1 with PID 9920 (C:\IFPR\WEBIII\demo\target\classes started by guilh in C:\IFPR\WEBIII\demo)
+2025-12-01 23:12:53.688 [main] INFO  c.t.demo.TransacaoDemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-01 23:12:54.189 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-01 23:12:54.240 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 1 JPA repository interface.
+2025-12-01 23:12:54.606 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-01 23:12:54.616 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-01 23:12:54.618 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-01 23:12:54.618 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-01 23:12:54.668 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 944 ms
+2025-12-01 23:12:54.802 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-01 23:12:54.844 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.1.8.Final
+2025-12-01 23:12:55.194 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-01 23:12:55.225 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-01 23:12:55.308 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@48ee3c2d
+2025-12-01 23:12:55.309 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-01 23:12:55.361 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/transacao_demo]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 13.1
+	Default catalog/schema: transacao_demo/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-01 23:12:55.866 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-01 23:12:55.917 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01 23:12:55.972 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-01 23:12:56.112 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01 23:12:56.126 [main] INFO  o.s.b.w.a.WelcomePageHandlerMapping - Adding welcome page template: index
+2025-12-01 23:12:56.332 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-01 23:12:56.348 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-01 23:12:56.353 [main] INFO  c.t.demo.TransacaoDemoApplication - Started TransacaoDemoApplication in 3.07 seconds (process running for 3.371)
+2025-12-01 23:12:58.902 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-01 23:12:58.903 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-01 23:12:58.904 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-12-01 23:12:58.965 [http-nio-8080-exec-1] INFO  c.t.demo.TransactionalService - AUDIT: Transação ID 1764641578965 INICIADA. Método @Transactional ativado.
+2025-12-01 23:12:59.011 [http-nio-8080-exec-1] INFO  c.t.demo.TransactionalService - AUDIT: Inserção do Item A (ID 11) concluída na sessão transacional.
+2025-12-01 23:12:59.014 [http-nio-8080-exec-1] INFO  c.t.demo.TransactionalService - AUDIT: Inserção do Item B (ID 12) concluída na sessão transacional.
+2025-12-01 23:12:59.014 [http-nio-8080-exec-1] ERROR c.t.demo.TransactionalService - AUDIT: Falha de negócio detectada. Lançando RuntimeException para forçar ROLLBACK.
+2025-12-01 23:13:06.906 [http-nio-8080-exec-2] INFO  c.t.demo.TransactionalService - AUDIT: Transação ID 1764641586906 INICIADA. Método @Transactional ativado.
+2025-12-01 23:13:06.909 [http-nio-8080-exec-2] INFO  c.t.demo.TransactionalService - AUDIT: Inserção do Item A (ID 13) concluída na sessão transacional.
+2025-12-01 23:13:06.911 [http-nio-8080-exec-2] INFO  c.t.demo.TransactionalService - AUDIT: Inserção do Item B (ID 14) concluída na sessão transacional.
+2025-12-01 23:13:06.911 [http-nio-8080-exec-2] ERROR c.t.demo.TransactionalService - AUDIT: Falha de negócio detectada. Lançando RuntimeException para forçar ROLLBACK.

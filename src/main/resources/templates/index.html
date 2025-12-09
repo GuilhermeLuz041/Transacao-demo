@@ -119,7 +119,7 @@
         });
 
         async function handleTransaction(event) {
-            event.preventDefault();
+            event.preventDefault(); 
 
             const btn = event.target.querySelector('button');
             const originalContent = btn.innerHTML;
@@ -153,3 +153,36 @@
 
             } catch (error) {
                 console.error(error);
+                Swal.fire('Erro', 'Não foi possível conectar ao servidor.', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+            }
+        }
+
+        function checkStatusOnLoad() {
+            const statusBox = document.getElementById('status-box');
+            if (statusBox) {
+                const type = statusBox.getAttribute('data-status'); // 'success' ou 'error'
+                const msg = statusBox.getAttribute('data-message');
+
+                if (type === 'error') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Rollback Ativado!',
+                        text: 'O Spring detectou a falha e reverteu todas as alterações.',
+                        confirmButtonColor: '#d33'
+                    });
+                } else if (type === 'success') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Transação Concluída!',
+                        text: 'Todos os dados foram salvos com sucesso.',
+                        confirmButtonColor: '#198754'
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>
